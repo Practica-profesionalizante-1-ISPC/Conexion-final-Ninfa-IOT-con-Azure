@@ -24,10 +24,10 @@
 
 
 //Iniciamos variable de sensor.
-int sensorRuido = 34;    // Pin del microfono
-int Led = 13;            // Pin led
-#define sensorDHT 14     // Pin del sensor DHT
-DHT dht(sensorDHT, DHT22);
+int sensorRuido = 34;       // Configurar Pin del microfono en tu ESP32
+int Led = 13;               // Configurar Pin led en tu ESP32
+#define sensorDHT 14        // Configurar Pin del sensor DHT en tu ESP32
+DHT dht(sensorDHT, DHT22);  // Definir tipo de sensor DHT
 
 int ruido = 0;
 int hum = 0;
@@ -37,13 +37,13 @@ float bTemperatura = 0.02; // Coeficiente de la temperatura
 float cHumedad = -0.01;    // Coeficiente de la humedad
 
 // Wifi
-#define IOT_CONFIG_WIFI_SSID "TITAN"
-#define IOT_CONFIG_WIFI_PASSWORD "info2021docta"
+#define IOT_CONFIG_WIFI_SSID "Nombre de la Red Wifi a la que se conectará el dipositivo IoT"
+#define IOT_CONFIG_WIFI_PASSWORD "Contraseña de la Red WiFi"
 
 // Azure IoT
-#define IOT_CONFIG_IOTHUB_FQDN "ISPC1.azure-devices.net"
-#define IOT_CONFIG_DEVICE_ID "dispositivo2"
-#define IOT_CONFIG_DEVICE_KEY "btPHnfPNuM7c/gNUrbO30xAxfW/k4IfIPKFOv7I6lqY="
+#define IOT_CONFIG_IOTHUB_FQDN "Host del dispositivo IoT en Azure"
+#define IOT_CONFIG_DEVICE_ID "Nombre del dispositivo IoT en Azure"
+#define IOT_CONFIG_DEVICE_KEY "Clave primaria del dispositivo IoT en Azure"
 
 // Tiempo que se envia cada mensaje al server.
 #define TELEMETRY_FREQUENCY_MILLISECS 5000
@@ -385,7 +385,7 @@ static void sendTelemetry()
 }
 
 
-const int sampleWindow = 30;  // Ancho de ventana de muestra en ms (35 ms = 28.57Hz) 
+const int sampleWindow = 30;  // Ancho de ventana de muestra en ms (30 ms = 33.333 Hz) 
 unsigned int sample;
 
 
